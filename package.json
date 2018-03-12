@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ldjking/51ABC/issues"
   },
-  "homepage": "https://github.com/ldjking/51ABC#readme"
+  "homepage": "https://github.com/ldjking/51ABC#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
 }
