@@ -34,15 +34,37 @@ a3_exchange   	交换记录表  1对1交易
 	sign        	操作人签名
 	ref_ex_list 	引用交易，最多100个，逐项hash 并签名
 
+	创建合约
+	签署和加入（可能涉及付钱）
+	合约生效
+	合约表决
+	加入合约用的是交易key
+	表决合约用的是见证key
+
+	交易
+	用户见证	被其他人见证		     1:100 	1分钟内的所有人见证均可参与均分手续费（最多100人）
+	系统见证	被机器人见证	更多的   1:7   	7倍3n+1
+
+	更换密钥
+
+
 a4_contract     智能合约表   两种  定向合约  开放合约  
     metakey
-    type            交易类型  build定向合约    build开放合约
+    type            交易类型  build定向合约  撤销定向合约    build开放合约
     a               操作人
     b_list          交易对手
     amt_list        每个交易对手的加入金额
     amt_min         开放合约的最小金额
     amt_max         开放合约的最大金额
     result_commit_method 定向合约的结果表决方法  表决60%  100%一致 裁判  裁判+表决
+    contract_end_time  结束时间
+    contract_vote_time 表决时间
+    contract_vote_type 加密表决 明文表决
+    vote_open_key_time 公开密钥时间   如果有人最终不公开密钥呢 会影响开奖结果
+    第一轮公开密钥
+    不公开就lost掉 第二轮候选表决
+    第二轮公开密钥   相当复杂
+
     result_list		结果清单
     assign_list		不同结果下的分配规则
     fail_days		结束时间
@@ -64,6 +86,7 @@ a4_witness    见证表
 	vote_cipher1	加密表决合约加密值1
 	vote_cipher2	加密表决合约加密值2
 	vote            公开表决
+	vote_key	    加密表决公开key
 	a 				见证人
 	a_pubkey		见证人公钥
 	a_hmacstr   	见证人hmac的随机串
